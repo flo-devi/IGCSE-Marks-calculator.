@@ -1,0 +1,32 @@
+.subjects {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  color:white;
+}
+
+.subject {
+  border: 1px solid #555;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: 0.2s;
+  width: 100px;
+  height: 100px;
+}
+
+.subject:hover {
+  transform: scale(1.05);
+  border-color: #fff;
+}
+
+.subject.selected {
+  border: 2px solid red;
+}
+
+.h2 {
+  text-align: center;
+}
+
