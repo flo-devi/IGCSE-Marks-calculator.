@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IGCSE Grade Calc</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IGCSE Grade Calculator</title>
+<link rel="stylesheet" href="style.css">
 </head>
+<body class="dark-mode">
+<div class="container">
 
-<body style="background-color:black; color:white;">
-  <h2 class="h2">Choose Your Subject</h2>
+    <header>
+        <h1>IGCSE Grade Calculator</h1>
+        <p class="subtitle">Calculate weighted grades for Maths, CS, Biology, Chemistry & Physics</p>
+    </header>
 
-  <label for="code">Enter Subject Code:</label>
-  <input type="text" id="code" placeholder="">
+    <!-- Top controls: Theme button + Light/Dark toggle -->
+    <div class="top-controls">
+        <button id="themeBtn">Change Theme</button>
 
-  <div class="subjects">
-    <div class="subject" data-code="0625">⚛️ <br><br>Physics</div>
-    <div class="subject" data-code="0620">🧪 <br><br>Chemistry</div>
-    <div class="subject" data-code="0610">💊 <br><br>Biology</div>
-    <div class="subject" data-code="0580">⺎ <br><br>Maths</div>
-    <div class="subject" data-code="0455">🖥️ <br><br>CS</div>
-  </div>
+        <label class="switch">
+            <input type="checkbox" id="modeSwitch">
+            <span class="slider round"></span>
+            <span class="mode-label">Light Mode</span>
+        </label>
+    </div>
 
-  <br>
-  <button id="start" style="color:black;">Enter Marks</button>
+    <!-- Subject selection -->
+    <div class="card subject-card">
+        <label for="subject">Select Subject:</label>
+        <select id="subject" onchange="renderInputs()">
+            <option value="">--Select Subject--</option>
+            <option value="math">Maths (0580)</option>
+            <option value="cs">Computer Science (0478)</option>
+            <option value="bio">Biology (0610)</option>
+            <option value="chem">Chemistry (0620)</option>
+            <option value="phy">Physics (0625)</option>
+        </select>
+    </div>
 
-  <script src="script.js"></script>
+    <div id="inputs-container" class="inputs-container card"></div>
+
+    <button id="calc-btn" onclick="calculateGrade()">Calculate Grade</button>
+
+    <div id="result" class="result card"></div>
+    <div id="thresholds-box" class="thresholds-box card"></div>
+
+    <footer>
+        &copy; 2026 IGCSE Grade Calculator. All rights reserved.
+    </footer>
+
+</div>
+<script src="script.js"></script>
 </body>
-
 </html>
